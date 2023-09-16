@@ -1,0 +1,332 @@
+.first-display {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.first-display .hidden {
+  display: none;
+}
+
+.display__cat {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.display__cat .hidden {
+  display: none;
+}
+
+.display__dog {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.display__dog .hidden {
+  display: none;
+}
+
+.display__result_cat {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.display__result_cat .hidden {
+  display: none;
+}
+
+.display__result_dog {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.display__result_dog .hidden {
+  display: none;
+}
+
+.display__result_catdog {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.display__result_catdog .hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+body {
+  font-family: Inter;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .main__img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 400px;
+  }
+}
+@media (max-width: 450px) {
+  .main__img {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 350px;
+  }
+}
+body {
+  background: url(../img/bg.png) center center/cover repeat;
+  margin: 0;
+}
+
+.container {
+  display: block;
+  margin: auto;
+  padding-bottom: 50px;
+}
+
+.page-btn {
+  position: relative;
+  display: block;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto 0 auto;
+}
+
+.btn__like {
+  position: relative;
+  display: block;
+  background-color: inherit;
+  border: solid 3px #32363B;
+  border-radius: 100%;
+  cursor: pointer;
+  width: 104px;
+  height: 104px;
+  -webkit-filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+          filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.btn__like img {
+  margin-top: -6px;
+}
+
+.f-d__title-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.f-d__title {
+  margin-left: -30px;
+  font-size: 48px;
+  font-weight: 500;
+  color: #FFF;
+  text-shadow: 1px 1px 1px #222929;
+}
+.f-d__img {
+  width: 300px;
+}
+.f-d__subtitle {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 32px;
+  font-weight: 400;
+}
+.f-d__img {
+  display: block;
+  margin: 0 auto 0 auto;
+}
+
+.start-btns {
+  margin: -145px auto 0 -32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 30px;
+}
+
+.dog-start-btn, .cat-start-btn {
+  background: transparent;
+  border: none !important;
+  font-size: 0;
+  width: 130px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.catdog-icon {
+  width: 137px;
+  height: 108px;
+}
+
+.display .manage-btns {
+  margin: 31px auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 51px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.display .mng-btn {
+  width: 127px;
+  height: 46px;
+  border-radius: 20px;
+  border: 3px solid #32363B;
+  background: #D6E8FF;
+  font-family: Inter;
+  font-style: italic;
+  font-weight: 700;
+  cursor: pointer;
+}
+.display .btn__up {
+  margin: 51px auto 0 auto;
+}
+.display .main-photo {
+  max-width: 343px;
+  margin-right: 30px;
+  margin-left: 30px;
+  height: 384px;
+  border-radius: 40px;
+  margin: 11px auto 11px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0 10px 0 10px;
+}
+.display__dog .dog__footer-img {
+  margin-top: -60px;
+}
+.display__dog .footer {
+  margin-top: 35px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 35px;
+}
+
+.main__img {
+  border-radius: 40px;
+}
+
+.display__cat .footer {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 35px;
+}
+
+.result__text {
+  width: 339px;
+  height: 302px;
+  border-radius: 52px;
+  background: #FFF;
+  color: #9DBDE4;
+  text-align: center;
+  font-family: Jost;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: normal;
+  text-shadow: 1px 1px 1px #000;
+  padding-top: 27px;
+  margin: 0 auto 0 auto;
+}
+.result .btn__back {
+  margin: 22px auto 0 28px;
+  width: 140.804px;
+  height: 51px;
+  border-radius: 20px;
+  border: 3px solid #32363B;
+  background: #D6E8FF;
+  color: #32363B;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.result_cat {
+  position: relative;
+}
+.result_cat .upside-cats {
+  display: block;
+  margin: 0 auto 0 auto;
+  width: 100%;
+}
+.result_cat .lying-cat {
+  display: block;
+  margin: 0 auto -57px auto;
+}
+.result_cat .shadow-cat {
+  display: block;
+  position: relative;
+  margin: -5px auto 0 auto;
+  z-index: -1;
+}
+.result_cat .meme-cat {
+  display: block;
+  margin: 30px auto -50px auto;
+  width: 100%;
+}
+
+.result_dog {
+  position: relative;
+}
+.result_dog .result__text {
+  margin-top: 196px;
+}
+.result_dog .btn__back {
+  margin-bottom: 200px;
+}
+.result_dog .main-dog {
+  position: absolute;
+  top: 170px;
+  margin: 0 auto 0 auto;
+  left: 0;
+  right: 0;
+}
+.result_dog .meme-dog1 {
+  display: block;
+  position: absolute;
+  margin-bottom: -50px;
+  bottom: 0;
+  left: 0;
+}
+.result_dog .meme-dog2 {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: -50px;
+}
+
+.result_catdog {
+  position: relative;
+}
+.result_catdog .catdog_dog {
+  position: absolute;
+  right: 0;
+}
+.result_catdog .catdog {
+  margin-top: 65px;
+}/*# sourceMappingURL=style.css.map */

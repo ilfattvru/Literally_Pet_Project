@@ -1,0 +1,57 @@
+.first-display {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.first-display .hidden {
+  display: none;
+}
+
+.display__cat {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.display__cat .hidden {
+  display: none;
+}
+
+.display__dog {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.display__dog .hidden {
+  display: none;
+}
+
+.display__result_cat {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.display__result_cat .hidden {
+  display: none;
+}
+
+.display__result_dog {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.display__result_dog .hidden {
+  display: none;
+}
+
+.display__result_catdog {
+  display: block;
+  -webkit-transition: display 1s ease-in-out;
+  transition: display 1s ease-in-out;
+}
+.display__result_catdog .hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}/*# sourceMappingURL=switchers.css.map */

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="first-display">
+            <div class="f-d__title-box">
+                <img src="icons/catdog-icon.png" alt="" class="catdog-icon">
+                <h1 class="f-d__title">CatsOrDogs</h1>
+            </div>
+            <h3 class="f-d__subtitle">Сделай свой выбор</h3>
+            <img src="img/f-g_img(1).png" alt="cat&dog cute" class="f-d__img">
+            <div class="start-btns">
+                <button class="cat-start-btn"></button>
+                <button class="dog-start-btn"></button>
+            </div>
+        </div>
+        <div class="display display__dog hidden">
+            <div class="manage-btns">
+                <button class="mng-btn btn__result">Результат</button>
+                <button class="mng-btn btn__main">Главное меню</button>
+            </div>
+            <button class="page-btn page-btn-dog btn__up">
+                <img src="img/up.png" alt="up" class="up-img">
+            </button>
+            <div class="main-photo">
+                <img src="img/dog1.png" alt="Ой, непрогрузилось, проверьте интернет" class="main__img dog-api">
+            </div>
+            <button class="page-btn page-btn-dog btn__down">
+                <img src="img/down.png" alt="down" class="down">
+            </button>
+            <div class="footer">
+                <img src="img/brown-dog.png" alt="brown dog" class="dog__footer-img">
+                <button id="like-dog" class="btn__like">
+                    <img src="img/like.png" alt="" class="sticker__img">
+                </button>
+            </div>
+        </div>
+        <div class="display display__cat hidden">
+            <div class="manage-btns">
+                <button class="mng-btn btn__result">Результат</button>
+                <button class="mng-btn btn__main">Главное меню</button>
+            </div>
+            <button class="page-btn page-btn-cat btn__up">
+                <img src="img/up.png" alt="up" class="up-img">
+            </button>
+            <div class="main-photo">
+                <img src="img/cat1.png" alt="Ой, непрогрузилось, проверьте интернет" class="main__img cat-api">
+            </div>
+            <button class="page-btn page-btn-cat btn__down">
+                <img src="img/down.png" alt="down" class="down">
+            </button>
+            <div class="footer">
+                <button id="like-cat" class="btn__like">
+                    <img src="img/like.png" alt="" class="sticker__img">
+                </button>
+                <img src="img/white-cat.png" alt="white cat" class="cat__footer-img">
+            </div>
+        </div>
+
+        <div class="result result_dog hidden">
+            <img src="img/sock-dog.png" alt="sock-dog" class="sock-dog">
+            <img src="img/hatiko.png" alt="hatiko" class="main-dog">
+            <div class="result__text">Поздравляем! <br> Вы отдаете свое предпочтение собачкам</div>
+            <button class="btn btn__back">Назад</button>
+            <img src="img/chuvirla.png" alt="chuvirla" class="meme-dog1">
+            <img src="img/fun-dog.png" alt="funny__dog" class="meme-dog2">
+        </div>
+        <div class="result result_cat hidden">
+            <img src="img/cats.png" alt="cats" class="upside-cats">
+            <img src="img/gray-cat.png" alt="cute cat" class="lying-cat">
+            <div class="result__text">Поздравляем! <br>
+                Вы отдаете свое предпочтение
+                котикам</div>
+            <img src="img/shadow-cat.png" alt="shadowcat" class="shadow-cat">
+            <button class="btn btn__back">Назад</button>
+
+            <img src="img/mothefucker.png" alt="cat-fucker" class="meme-cat">
+        </div>
+        <div class="result result_catdog hidden">
+            <img src="img/catdogCat.png" alt="catdogcat" class="catdog_cat">
+            <div class="result__text">Поздравляем! <br>
+                Вы отдаете свое предпочтение
+                котопсам!?
+            </div>
+            <button class="btn btn__back">Назад</button>
+            <img src="img/catdogDog.png" alt="dog" class="catdog_dog">
+            <img src="img/catdog.png" alt="catgdog" class="catdog">
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+@media (max-width: 1000px) {
+  .container {
+    margin: 0 30px 0 30px;
+  }
+  .advantage-wrapper {
+    gap: 10px;
+  }
+  .carousel .container {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  .catalog__content {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 20px;
+  }
+}/*# sourceMappingURL=mobile.css.map */
