@@ -1,186 +1,150 @@
-// Получаем элемент с классом .first-display
-const firstDisplayElement = document.querySelector(".first-display");
-const displayCatElement = document.querySelector(".display__cat");
-const displayDogElement = document.querySelector(".display__dog");
-const resultCatElement = document.querySelector(".result_cat");
-const resultDogElement = document.querySelector(".result_dog");
-const resultCatdogElement = document.querySelector(".result_catdog");
-const displayElement = document.querySelectorAll(".display");
-const startDogBtn = document.querySelector(".dog-start-btn");
-const startCatBtn = document.querySelector(".cat-start-btn");
+// Utility function to get element(s) by selector
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
 
+// DOM Elements
+const firstDisplayElement = $(".first-display");
+const displayCatElement = $(".display__cat");
+const displayDogElement = $(".display__dog");
+const resultCatElement = $(".result_cat");
+const resultDogElement = $(".result_dog");
+const resultCatdogElement = $(".result_catdog");
+const startDogBtn = $(".dog-start-btn");
+const startCatBtn = $(".cat-start-btn");
+const pageBtnsCats = $$(".page-btn-cat");
+const catImage = $(".cat-api");
+const pageBtnsDogs = $$(".page-btn-dog");
+const dogImage = $(".dog-api");
+
+// API URLs
+const catUrl = "https://api.thecatapi.com/v1/images/search";
+const dogUrl = "https://dog.ceo/api/breeds/image/random";
+
+// Votes
 let currentCatVotes = 0;
 let currentDogVotes = 0;
 
-//Выбор кошки/собаки
-startDogBtn.addEventListener("click", function () {
-  firstDisplayElement.classList.add("hidden");
-  displayDogElement.classList.remove("hidden");
+// Show/hide helpers
+function showElement(el) {
+  el.classList.remove("hidden");
+}
+function hideElement(el) {
+  el.classList.add("hidden");
+}
+
+// Start screen handlers
+startDogBtn.addEventListener("click", () => {
+  hideElement(firstDisplayElement);
+  showElement(displayDogElement);
 });
 
-startCatBtn.addEventListener("click", function () {
-  firstDisplayElement.classList.add("hidden");
-  displayCatElement.classList.remove("hidden");
+startCatBtn.addEventListener("click", () => {
+  hideElement(firstDisplayElement);
+  showElement(displayCatElement);
 });
 
-
-const pageBtnsCats = document.querySelectorAll(".page-btn-cat");
-const catImage = document.querySelector(".cat-api");
-const catUrl = "https://api.thecatapi.com/v1/images/search";
-
-async function fetchHandlerCat() {
+// Fetch cat image
+async function fetchCatImage() {
   try {
     const response = await fetch(catUrl);
     const data = await response.json();
-    if (data && Array.isArray(data) && data.length > 0) {
-      const catImageUrl = data[0].url;
-      catImage.src = catImageUrl;
+    if (Array.isArray(data) && data.length > 0 && data[0].url) {
+      catImage.src = data[0].url;
     } else {
-      console.log("Данные изображения не получены.");
+      console.error("Данные изображения не получены.");
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
-
-pageBtnsCats.forEach(function (btn) {
-  btn.addEventListener("click", () => {
-    let isLoaded = catImage.complete;
-    if (isLoaded) {
-      fetchHandlerCat();
-    }
-  });
-});
-
-
-const pageBtnsDogs = document.querySelectorAll(".page-btn-dog");
-const dogImage = document.querySelector(".dog-api");
-const dogUrl = "https://dog.ceo/api/breeds/image/random";
-
-async function fetchHandlerDog() {
+// Fetch dog image
+async function fetchDogImage() {
   try {
     const response = await fetch(dogUrl);
     const data = await response.json();
-    console.log(data)
-    if (data)  {
-      const dogImageUrl = data.message;
-      console.log(dogImageUrl);
-      dogImage.src = dogImageUrl;
+    if (data && data.message) {
+      dogImage.src = data.message;
     } else {
-      console.log("Данные изображения не получены.");
+      console.error("Данные изображения не получены.");
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 
-pageBtnsDogs.forEach(function (btn) {
+// Cat page navigation
+pageBtnsCats.forEach((btn) => {
   btn.addEventListener("click", () => {
-    fetchHandlerDog();
+    if (catImage.complete) {
+      fetchCatImage();
+    }
   });
 });
 
+// Dog page navigation
+pageBtnsDogs.forEach((btn) => {
+  btn.addEventListener("click", fetchDogImage);
+});
 
-// const pageBtnsDogs = document.querySelectorAll(".page-btn-dog");
-// const dogImage = document.querySelector(".dog-api");
-// const dogUrl = "https://random.dog/woof.json";
-
-// async function fetchHandlerDog() {
-//   try {
-//     const response = await fetch(dogUrl);
-//     const data = await response.json();
-//     if (data && data.url) {
-//       const dogImageUrl = data.url;
-//       dogImage.src = dogImageUrl;
-//     } else {
-//       console.log("Данные изображения собаки не получены.");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// pageBtnsDogs.forEach(function (btn) {
-//   btn.addEventListener("click", () => {
-//     fetchHandlerDog();
-//   });
-// });
-
-
-// Обработчик клика на кнопке .btn__like cat
-document.getElementById("like-cat").addEventListener("click", function () {
-  // Получаем текущее количество голосов за котов из localStorage (если не существует, присваиваем 0)
-  currentCatVotes = parseInt(localStorage.getItem("catVotes")) || 0;
-
-  // Увеличиваем количество голосов за котов на 1
+// Like handlers
+$("#like-cat").addEventListener("click", () => {
+  currentCatVotes = parseInt(sessionStorage.getItem("catVotes")) || 0;
   currentCatVotes += 1;
-  console.log("Записалось коту +1");
-  // Сохраняем обновленное значение в localStorage
-  localStorage.setItem("catVotes", currentCatVotes);
-  console.log(currentCatVotes);
+  sessionStorage.setItem("catVotes", currentCatVotes);
 });
 
-// Обработчик клика на кнопке .btn__like dog
-document.getElementById("like-dog").addEventListener("click", function () {
-  // Получаем текущее количество голосов за собак из localStorage (если не существует, присваиваем 0)
-  currentDogVotes = parseInt(localStorage.getItem("dogVotes")) || 0;
-
-  // Увеличиваем количество голосов за собак на 1
+$("#like-dog").addEventListener("click", () => {
+  currentDogVotes = parseInt(sessionStorage.getItem("dogVotes")) || 0;
   currentDogVotes += 1;
-  console.log("Записалось собаке +1");
-  // Сохраняем обновленное значение в localStorage
-  localStorage.setItem("dogVotes", currentDogVotes);
-  console.log(currentDogVotes);
+  sessionStorage.setItem("dogVotes", currentDogVotes);
 });
 
-document.querySelector("page");
+// Results handler
+const btnResults = $$(".btn__result");
+btnResults.forEach((btnResult) => {
+  btnResult.addEventListener("click", () => {
+    // Get latest votes from sessionStorage
+    currentCatVotes = parseInt(sessionStorage.getItem("catVotes")) || 0;
+    currentDogVotes = parseInt(sessionStorage.getItem("dogVotes")) || 0;
 
-var btnResults = document.querySelectorAll(".btn__result");
+    hideElement(displayCatElement);
+    hideElement(displayDogElement);
 
-// Добавляем обработчик события для каждого элемента в коллекции
-btnResults.forEach(function (btnResult) {
-  btnResult.addEventListener("click", function () {
-    // условие на лайки
     if (currentCatVotes > currentDogVotes) {
-      console.log("Должно появиться окно с кошками");
-      resultCatElement.classList.remove("hidden");
-      displayCatElement.classList.add("hidden");
-      displayDogElement.classList.add("hidden");
-    }
-    if (currentCatVotes === currentDogVotes) {
-      console.log("должно появиться котопес");
-      resultCatdogElement.classList.remove("hidden");
-      displayCatElement.classList.add("hidden");
-      displayDogElement.classList.add("hidden");
-    }
-    if (currentCatVotes < currentDogVotes) {
-      console.log("Должно появиться окно с собаками");
-      displayCatElement.classList.add("hidden");
-      displayDogElement.classList.add("hidden");
-      resultDogElement.classList.remove("hidden");
+      showElement(resultCatElement);
+      hideElement(resultDogElement);
+      hideElement(resultCatdogElement);
+    } else if (currentCatVotes === currentDogVotes) {
+      showElement(resultCatdogElement);
+      hideElement(resultCatElement);
+      hideElement(resultDogElement);
+    } else {
+      showElement(resultDogElement);
+      hideElement(resultCatElement);
+      hideElement(resultCatdogElement);
     }
   });
 });
 
-// Получаем коллекцию всех элементов с классом .btn__back
-var btnBackElements = document.querySelectorAll(".btn__back");
-let btnMainMenuElement = document.querySelectorAll(".btn__main");
+// Back and main menu handlers
+const btnBackElements = $$(".btn__back");
+const btnMainMenuElements = $$(".btn__main");
 
-// Добавляем обработчик события для каждой кнопки в коллекции
-btnBackElements.forEach(function (btnBack) {
-  btnBack.addEventListener("click", function () {
-    // Очищаем localStorage
-    localStorage.clear();
-    // Перезагружаем страницу
+btnBackElements.forEach((btnBack) => {
+  btnBack.addEventListener("click", () => {
+    sessionStorage.clear();
     window.location.reload();
   });
 });
 
-btnMainMenuElement.forEach(function (btnMenu) {
-  btnMenu.addEventListener("click", function () {
-    firstDisplayElement.classList.remove("hidden");
-    displayCatElement.classList.add("hidden");
-    displayDogElement.classList.add("hidden");
+btnMainMenuElements.forEach((btnMenu) => {
+  btnMenu.addEventListener("click", () => {
+    showElement(firstDisplayElement);
+    hideElement(displayCatElement);
+    hideElement(displayDogElement);
+    hideElement(resultCatElement);
+    hideElement(resultDogElement);
+    hideElement(resultCatdogElement);
   });
 });
